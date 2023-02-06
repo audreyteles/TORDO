@@ -1,0 +1,9 @@
+# Secret key of your project settings
+SECRET_KEY=
+
+# Database settings
+NAME=
+USER=
+PASSWORD=
+HOST=
+PORT=

@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static '/style/style.css' %}">
+
+    <title>TORDO</title>
+</head>
+<body>
+<header>
+    <h1 class="logo">TORDO</h1>
+    <nav>
+        <ul>
+            <li class="item-list"><a class="link-nav" href="about.asp">About</a></li>
+            <li class="item-list"><a class="link-nav" href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <div class="card-input">
+        <form action="{%url 'mytodo' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn-input">CREATE</button>
+        </form>
+    </div>
+
+    <div class="content">
+        <ul id="listTask">
+            {% for task in tasks %}
+            <li>
+                <span class="textTask">{{ task.name }}</span>
+            </li>
+            {%endfor%}
+        </ul>
+
+    </div>
+
+</main>
+</body>
+</html>
