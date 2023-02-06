@@ -15,7 +15,8 @@ def index(request):
         return redirect("/login")
     else:
         form = ToDoForms()
-        tasks = Task.objects.filter(user_id=user).all()
+        tasks = Task.objects.filter(user_id=user).values('pk', 'name')
+        tasks = tasks.values('pk', 'name')
         context = {"form": form, "tasks": tasks}
         return render(request, 'index.html', context=context)
 
@@ -97,3 +98,12 @@ def register(request):
         else:
             messages.error(request, 'This email is already in use')
             return redirect("newaccount")
+
+
+def remove(request, task_id):
+    print(task_id)
+    task = Task.objects.get(pk=task_id)
+    print(task)
+    task.delete()
+
+    return redirect('/')

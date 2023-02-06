@@ -9,5 +9,6 @@ urlpatterns = [
     path('mytodo', create, name="mytodo"),
     path('logout', logout, name="logout"),
     path('register', register, name="register"),
-    path('newaccount', new, name="newaccount")
+    path('newaccount', new, name="newaccount"),
+    path('task/<int:task_id>/', remove, name="remove")
 ]

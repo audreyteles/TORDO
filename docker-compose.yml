@@ -1,18 +1,11 @@
-version: '3'
-
+version: "3.8"
 services:
-  web:
-    restart: always
-    build: ./web
-    expose:
-      - "8000"
+  app:
+    build: .
     volumes:
-      - web-django:/usr/src/app
-      - web-static:/usr/src/app/static
-    env_file: .env
-    environment:
-      DEBUG: 'false'
-    command: /usr/local/bin/gunicorn docker_django.wsgi:application -w 2 -b :8000
-volumes:
-  web-django:
-  web-static:
+      - .:/django
+    ports:
+      - 8000:8000
+    image: app:django
+    container_name: TORDO
+    command: python manage.py runserver 0.0.0.0:8000

@@ -30,7 +30,7 @@
         <ul id="listTask">
             {% for task in tasks %}
             <li>
-                <span class="textTask">{{ task.name }}</span>
+                <span class="textTask">{{ task.name }}</span> <a class="remove" href="/task/{{ task.pk }}"><img width="30px" src="{% static '/img/lixo.png' %}"></a>
             </li>
             {%endfor%}
         </ul>
