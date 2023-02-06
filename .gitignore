@@ -1,0 +1,13 @@
+
+*.pyc
+*.pyc
+*.xml
+*.iml
+*.pyc
+*.pyc
+todo/__pycache__/views.cpython-310.pyc
+todo/__pycache__/urls.cpython-310.pyc
+.idea/.name
+todo/__pycache__/views.cpython-310.pyc
+todo/__pycache__/urls.cpython-310.pyc
+*.pyc
