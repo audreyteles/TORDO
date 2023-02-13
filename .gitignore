@@ -11,3 +11,6 @@ todo/__pycache__/urls.cpython-310.pyc
 todo/__pycache__/views.cpython-310.pyc
 todo/__pycache__/urls.cpython-310.pyc
 *.pyc
+.env
+*.pyc
+*.pyc

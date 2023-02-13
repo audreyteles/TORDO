@@ -3,7 +3,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static '/style/style.css' %}">
+    <link rel="stylesheet" href="{% static '/style/style.css' %}" media='all'>
+    <link rel="stylesheet" href="{% static '/style/other.css' %}" media='screen and (min-width: 800px)'>
 
     <title>TORDO</title>
 </head>
@@ -16,24 +17,24 @@
     <section class="area-login">
         <div class="login">
             <h1 class="title">LOGIN</h1>
-            <form action="{%url 'auth' %}" method="post">
+            <form action="{% url 'auth' %}" method="post">
                 {% csrf_token %}
                 {{ form }}
                 <button type="submit">Login</button>
 
             </form>
-            <p> Don't have an account yet? <a class="new_account" href="{%url 'newaccount' %}">Create Account</a></p>
+            <p> Don't have an account yet? <a class="new_account" href="{% url 'newaccount' %}">Create Account</a></p>
             <br>
             <br>
-                <br>
+            <br>
             {% if messages %}
-            <ul class="messages link-nav">
-                {% for message in messages %}
-                <li style="align-content: center;"
-                        {% if message.tags %} class="{{ message.tags }} item-list" {% endif %}>{{ message }}
-                </li>
-                {% endfor %}
-            </ul>
+                <ul class="messages link-nav">
+                    {% for message in messages %}
+                        <li style="align-content: center;"
+                                {% if message.tags %} class="{{ message.tags }} item-list" {% endif %}>{{ message }}
+                        </li>
+                    {% endfor %}
+                </ul>
             {% endif %}
         </div>
     </section>

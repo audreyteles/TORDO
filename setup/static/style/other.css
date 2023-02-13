@@ -55,9 +55,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 10%;
-    font-size: 30px;
-
+    padding: 5px 10%;
 }
 
 .item-list {
@@ -105,7 +103,6 @@ header {
 
 }
 
-/* LOGIN */
 .area-login {
     display: flex;
     height: 85vh;
@@ -118,9 +115,9 @@ header {
     flex-direction: column;
     background-color: #1b1b1b;
     border-radius: 10px;
-    width: 700px;
-    height: 600px;
-    padding: 60px;
+    width: 355px;
+    height: 320px;
+    padding: 35px;
     align-items: center;
 }
 
@@ -130,14 +127,12 @@ header {
 }
 
 .login input, .login button {
-    font-size: 30px;
-
-    margin-top: 40px;
+    margin-top: 10px;
     background-color: #24252A;
     padding-left: 10px;
     border: none;
     color: white;
-    height: 85px;
+    height: 45px;
     outline: none;
     border-radius: 8px;
 }
@@ -146,29 +141,23 @@ header {
     cursor: pointer;
     display: block;
     background-color: rgb(255, 63, 4);
-    font-size: 35px;
+    font-size: 15px;
     font-weight: bold;
     text-transform: uppercase;
 }
 
 p {
     color: white;
-    font-size: 30px;
-
 }
-
 
 .new_account {
     color: rgb(255, 63, 4);
-    font-size: 30px;
-
 }
 
 .title {
     text-align: center;
-    font-size: 40px;
 }
 
-.remove {
+.remove{
     cursor: pointer;
 }
