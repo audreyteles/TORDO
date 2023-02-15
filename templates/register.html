@@ -3,7 +3,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static '/style/style.css' %}">
+    <link rel="stylesheet" href="{% static '/style/style.css' %}" media='all'>
+    <link rel="stylesheet" href="{% static '/style/other.css' %}">
     <title>TORDO</title>
 </head>
 <body>
@@ -12,23 +13,22 @@
 </header>
 <main>
     <section class="area-login">
-        <div class="login">
-            <h1 class="title">Register</h1>
-            <form action="{%url 'register' %}" method="post">
+        <div class="register">
+            <form action="{% url 'register' %}" method="post">
+                <h1 class="title">Register</h1>
+
                 {% csrf_token %}
                 {{ form }}
                 <button type="submit">Register</button>
+                <p> Already have an account? <a class="new_account" href="{% url 'login' %}">Sign in</a></p>
+
             </form>
-            <p> Already have an account? <a class="new_account" href="{%url 'login' %}">Sign in</a></p>
-            <br>
             {% if messages %}
-            <ul class="messages link-nav">
-                {% for message in messages %}
-                <li style="align-content: center;"
-                        {% if message.tags %} class="{{ message.tags }} item-list" {% endif %}>{{ message }}
-                </li>
-                {% endfor %}
-            </ul>
+                <div class="messages">
+                    {% for message in messages %}
+                        <p class="message {{ message.tags }} message-flash-register">{{ message }}</p>
+                    {% endfor %}
+                </div>
             {% endif %}
         </div>
 

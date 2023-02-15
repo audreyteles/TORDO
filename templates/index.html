@@ -3,7 +3,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static '/style/style.css' %}">
+    <link rel="stylesheet" href="{% static '/style/style.css' %}" media='all'>
+    <link rel="stylesheet" href="{% static '/style/other.css' %}">
 
     <title>TORDO</title>
 </head>
@@ -19,7 +20,7 @@
 </header>
 <main>
     <div class="card-input">
-        <form action="{%url 'mytodo' %}" method="post">
+        <form action="{% url 'mytodo' %}" method="post">
             {% csrf_token %}
             {{ form }}
             <button type="submit" class="btn-input">CREATE</button>
@@ -29,10 +30,11 @@
     <div class="content">
         <ul id="listTask">
             {% for task in tasks %}
-            <li>
-                <span class="textTask">{{ task.name }}</span> <a class="remove" href="/task/{{ task.pk }}"><img width="30px" src="{% static '/img/lixo.png' %}"></a>
-            </li>
-            {%endfor%}
+                <li>
+                    <span class="textTask">{{ task.name }}</span> <a class="remove" href="/task/{{ task.pk }}"><img
+                        width="30px" src="{% static '/img/lixo.png' %}"></a>
+                </li>
+            {% endfor %}
         </ul>
 
     </div>

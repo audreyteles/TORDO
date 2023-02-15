@@ -47,7 +47,7 @@ def auth(request):
         user = User.objects.filter(email=email).values('password')
         try:
             passw = user[0]['password']
-        except:
+        except IndexError:
             passw = None
         if passw is not None and check_password(password, passw):
             user = User.objects.filter(email=email).values('pk')
@@ -62,7 +62,6 @@ def auth(request):
 
 def logout(request):
     del request.session['user']
-    messages.info(request, 'logout done successfully')
     return redirect('/')
 
 
@@ -81,23 +80,22 @@ def register(request):
     password = user_data['password']
 
     if request.method == 'POST':
-        user = User.objects.filter(email="email").values('password')
+        user = User.objects.filter(email=email).values('password')
         try:
             user = user[0]['password']
+        except IndexError:
             user = None
-        except:
-            user = not None
 
         if user is None:
             new_user = User(username=username, email=email, password=make_password(password))
             User.save(new_user)
 
             user = User.objects.filter(email=email).values('pk')
-            request.session['user'] = user
+            request.session['user'] = user[0]['pk']
             return redirect("/")
         else:
             messages.error(request, 'This email is already in use')
-            return redirect("newaccount")
+            return redirect("/newaccount")
 
 
 def remove(request, task_id):
@@ -105,5 +103,4 @@ def remove(request, task_id):
     task = Task.objects.get(pk=task_id)
     print(task)
     task.delete()
-
     return redirect('/')

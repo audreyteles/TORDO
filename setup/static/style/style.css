@@ -8,7 +8,7 @@ body {
 
 .item-list, .link-nav {
     font-weight: 500;
-    font-size: 16px;
+    font-size: 25px;
     color: white;
     text-decoration: none;
     user-select: none;
@@ -16,16 +16,16 @@ body {
 
 
 .task {
-    width: 50%;
-    min-width: 200px;
-    max-width: 400px;
+    min-width: 30vw;
     border: none;
     border-radius: 10px;
     padding: 15px;
     color: black;
-    font-size: 12pt;
+    font-size: 17pt;
     outline: none;
     margin-right: 5px;
+    height: 50px;
+
 }
 
 .card-input {
@@ -36,15 +36,16 @@ body {
 
 .btn-input {
     border-radius: 8px;
-    padding: 16px 5px;
-    width: 20%;
-    min-width: 100px;
+    padding-top: -10px;
+    width: 30%;
+    min-width: 150px;
     max-width: 115px;
+    height: 80px;
     border: none;
     outline: none;
     cursor: pointer;
     background: rgb(255, 63, 4);
-    font-weight: 800;
+    font-weight: bolder;
     letter-spacing: 1px;
     font-size: 100%;
     font-family: 'Open Sans', sans-serif;
@@ -56,7 +57,6 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 10%;
-    font-size: 30px;
 
 }
 
@@ -66,6 +66,7 @@ header {
 }
 
 .logo {
+    font-size: 30pt;
     color: white;
     cursor: pointer;
     user-select: none;
@@ -86,14 +87,14 @@ header {
 }
 
 #listTask li {
-    padding: 20px;
+    font-size: 25px;
+    padding: 40px;
     margin: 20px;
     background: #1b1b1b;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
     transition: 0.5s;
-
 }
 
 #listTask li:hover {
@@ -151,6 +152,44 @@ header {
     text-transform: uppercase;
 }
 
+.register {
+    flex-direction: column;
+    background-color: #1b1b1b;
+    border-radius: 10px;
+    width: 800px;
+    height: 700px;
+    padding: 60px;
+    align-items: center;
+}
+
+.register form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register input, .register button {
+    font-size: 30px;
+
+    margin-top: 40px;
+    background-color: #24252A;
+    padding-left: 10px;
+    border: none;
+    color: white;
+    height: 85px;
+    outline: none;
+    border-radius: 8px;
+}
+
+
+.register button {
+    cursor: pointer;
+    display: block;
+    background-color: rgb(255, 63, 4);
+    font-size: 35px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 p {
     color: white;
     font-size: 30px;
@@ -171,4 +210,41 @@ p {
 
 .remove {
     cursor: pointer;
+}
+
+/*
+ *Add default styling for messages.
+ */
+.message {
+    margin-top: 50px;
+    border-radius: 5px;
+    color: white;
+    position: center;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    text-align: center;
+    width: 100%;
+    background-color: red;
+}
+
+/*
+ * Give the various message types the correct colors
+ */
+
+.message.success {
+    color: #006b1b;
+    background-color: green;
+}
+
+.message.error {
+    background-color: red ;
+}
+
+.message-flash-register {
+    margin-top: 5px;
+    overflow-y: auto;
+}
+.message-flash-login{
+    margin-top: -5px;
+    overflow-y: auto;
 }
